@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <title>Método Santino</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#020202;
+      overflow-x:hidden;
+      font-family:Arial, Helvetica, sans-serif;
+      color:white;
+    }
+
+    /* BACKGROUND */
+
+    .bg-blur-1{
+      position:fixed;
+      width:350px;
+      height:350px;
+      background:#16a34a;
+      opacity:.12;
+      filter:blur(120px);
+      top:-120px;
+      left:-120px;
+      z-index:0;
+    }
+
+    .bg-blur-2{
+      position:fixed;
+      width:350px;
+      height:350px;
+      background:#22c55e;
+      opacity:.10;
+      filter:blur(120px);
+      bottom:-120px;
+      right:-120px;
+      z-index:0;
+    }
+
+    /* CARDS */
+
+    .glass{
+      background:rgba(18,18,18,.72);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:0 0 30px rgba(0,0,0,.35);
+    }
+
+    /* BUTTON */
+
+    .cta{
+      background:linear-gradient(
+        135deg,
+        #22c55e,
+        #16a34a
+      );
+
+      box-shadow:
+      0 0 25px rgba(34,197,94,.35);
+
+      transition:.25s;
+    }
+
+    .cta:hover{
+      transform:translateY(-2px) scale(1.01);
+
+      box-shadow:
+      0 0 35px rgba(34,197,94,.55);
+    }
+
+    .cta:active{
+      transform:scale(.98);
+    }
+
+    /* FADE */
+
+    .fade{
+      opacity:0;
+      transform:translateY(25px);
+      transition:1s;
+    }
+
+    .fade.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* IMAGE EFFECT */
+
+    .img-card{
+      overflow:hidden;
+      position:relative;
+    }
+
+    .img-card img{
+      transition:.5s;
+    }
+
+    .img-card:hover img{
+      transform:scale(1.05);
+    }
+
+    /* PULSE */
+
+    .pulse{
+      animation:pulse 2s infinite;
+    }
+
+    @keyframes pulse{
+
+      0%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.03);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar{
+      width:0;
+      height:0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- BLUR -->
+
+  <div class="bg-blur-1"></div>
+  <div class="bg-blur-2"></div>
+
+  <!-- MAIN -->
+
+  <main class="relative z-10 max-w-md mx-auto px-4 py-5">
+
+    <!-- HERO -->
+
+    <section class="fade">
+
+      <img
+        src="images/teste-santino.jpeg"
+        class="w-full rounded-[30px] object-cover shadow-2xl"
+      />
+
+      <div class="text-center mt-7">
+
+        <h1 class="text-4xl font-black leading-tight">
+
+          Seu corte ainda fica
+          <span class="text-green-400">
+            pesado e sem leveza?
+          </span>
+
+        </h1>
+
+        <p class="text-zinc-400 mt-5 text-[16px] leading-relaxed">
+
+          O problema não é prática.
+          O problema é que ninguém te ensinou
+          a técnica correta da tesoura.
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="mt-7 fade">
+
+      <a
+        href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
+        class="cta pulse block w-full text-center py-4 rounded-2xl text-black font-black text-lg"
+      >
+
+        QUERO APRENDER AGORA
+
+      </a>
+
+    </section>
+
+    <!-- DOR -->
+
+    <section class="glass rounded-[28px] p-5 mt-7 fade">
+
+      <h2 class="text-red-400 font-black text-2xl leading-tight mb-5">
+
+        Você corta…
+        <br>
+        mas sente que ainda falta algo no resultado?
+
+      </h2>
+
+      <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+
+        Muitos barbeiros passam anos cortando,
+        mas continuam entregando cortes pesados,
+        sem leveza e sem naturalidade.
+
+      </p>
+
+      <div class="space-y-5 text-zinc-300">
+
+        <div class="flex gap-3">
+
+          <span class="text-red-400 text-lg">❌</span>
+
+          <div>
+
+            <p class="font-bold text-white text-sm">
+              O corte fica marcado demais
+            </p>
+
+            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
+              Mesmo tentando tirar peso,
+              o resultado continua artificial.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="flex gap-3">
+
+          <span class="text-red-400 text-lg">❌</span>
+
+          <div>
+
+            <p class="font-bold text-white text-sm">
+              Falta confiança na tesoura
+            </p>
+
+            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
+              Você corta inseguro,
+              sem saber exatamente o movimento correto.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="flex gap-3">
+
+          <span class="text-red-400 text-lg">❌</span>
+
+          <div>
+
+            <p class="font-bold text-white text-sm">
+              Os clientes percebem a diferença
+            </p>
+
+            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
+              E isso impede você de cobrar mais caro
+              e se destacar dos barbeiros comuns.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="flex gap-3">
+
+          <span class="text-red-400 text-lg">❌</span>
+
+          <div>
+
+            <p class="font-bold text-white text-sm">
+              Você vê outros barbeiros evoluindo
+            </p>
+
+            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
+              Enquanto sente que seus cortes
+              continuam no mesmo nível.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="flex gap-3">
+
+          <span class="text-red-400 text-lg">❌</span>
+
+          <div>
+
+            <p class="font-bold text-white text-sm">
+              Falta técnica refinada
+            </p>
+
+            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
+              Porque ninguém nunca te mostrou
+              o jeito certo de trabalhar a tesoura.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CORTES -->
+
+    <section class="mt-9 fade">
+
+      <h2 class="text-2xl font-black mb-2">
+        O que você vai aprender:
+      </h2>
+
+      <p class="text-zinc-400 text-sm mb-6">
+        Técnicas aplicadas em cortes reais.
+      </p>
+
+      <div class="grid grid-cols-2 gap-4">
+
+        <!-- 1 -->
+
+        <div class="glass rounded-[24px] overflow-hidden img-card">
+
+          <img
+            src="images/corte1.PNG"
+            class="w-full h-[190px] object-cover"
+          />
+
+          <div class="p-3">
+            <p class="font-bold text-sm">
+              Controle da Tesoura
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 2 -->
+
+        <div class="glass rounded-[24px] overflow-hidden img-card">
+
+          <img
+            src="images/ps1.jpeg"
+            class="w-full h-[190px] object-cover"
+          />
+
+          <div class="p-3">
+            <p class="font-bold text-sm">
+              Caimento Natural
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 3 -->
+
+        <div class="glass rounded-[24px] overflow-hidden img-card">
+
+          <img
+            src="images/corte3.PNG"
+            class="w-full h-[190px] object-cover"
+          />
+
+          <div class="p-3">
+            <p class="font-bold text-sm">
+              Leveza no Corte
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 4 -->
+
+        <div class="glass rounded-[24px] overflow-hidden img-card">
+
+          <img
+            src="images/ps2.jpeg"
+            class="w-full h-[190px] object-cover"
+          />
+
+          <div class="p-3">
+            <p class="font-bold text-sm">
+              Divisão Correta
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 5 -->
+
+        <div class="glass rounded-[24px] overflow-hidden img-card">
+
+          <img
+            src="images/ps3.jpeg"
+            class="w-full h-[190px] object-cover"
+          />
+
+          <div class="p-3">
+            <p class="font-bold text-sm">
+              Acabamento Profissional
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 6 -->
+
+        <div class="glass rounded-[24px] overflow-hidden img-card">
+
+          <img
+            src="images/ps4.jpeg"
+            class="w-full h-[190px] object-cover"
+          />
+
+          <div class="p-3">
+            <p class="font-bold text-sm">
+              Estrutura do Corte
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 7 -->
+
+        <div class="glass rounded-[24px] overflow-hidden img-card col-span-2">
+
+          <img
+            src="images/ps5.jpeg"
+            class="w-full h-[240px] object-cover"
+          />
+
+          <div class="p-4">
+            <p class="font-bold">
+              Técnicas aplicadas em clientes reais
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- AUTORIDADE -->
+
+    <section class="glass rounded-[28px] p-5 mt-8 fade">
+
+      <h2 class="font-black text-xl mb-4">
+        Quem vai te ensinar?
+      </h2>
+
+      <p class="text-zinc-300 leading-relaxed">
+
+        Eu sou
+        <span class="font-bold text-white">
+          Franciel Santino
+        </span>,
+        especialista em cortes na tesoura.
+
+        Ensino barbeiros a dominar técnica,
+        leveza e controle no corte,
+        mesmo que hoje ainda travem no básico.
+
+      </p>
+
+    </section>
+
+    <!-- FEEDBACKS -->
+
+    <section class="mt-9 fade">
+
+      <h2 class="text-2xl font-black mb-2">
+        Resultados de alunos
+      </h2>
+
+      <p class="text-zinc-400 text-sm mb-6">
+        Feedbacks reais de barbeiros.
+      </p>
+
+      <div class="space-y-4">
+
+        <img
+          src="images/feedback1.jpeg"
+          class="rounded-[24px] w-full glass"
+        />
+
+        <img
+          src="images/feedback2.jpeg"
+          class="rounded-[24px] w-full glass"
+        />
+
+        <img
+          src="images/feedback3.jpeg"
+          class="rounded-[24px] w-full glass"
+        />
+
+        <img
+          src="images/feedback4.jpeg"
+          class="rounded-[24px] w-full glass"
+        />
+
+        <img
+          src="images/feedback5.jpeg"
+          class="rounded-[24px] w-full glass"
+        />
+
+      </div>
+
+    </section>
+
+    <!-- OBJEÇÕES -->
+
+    <section class="mt-8 space-y-4 fade">
+
+      <div class="glass rounded-[24px] p-5">
+
+        <h3 class="font-black mb-3">
+          “Mas eu já corto há anos...”
+        </h3>
+
+        <p class="text-zinc-300 text-sm leading-relaxed">
+
+          É exatamente aí que muitos barbeiros travam.
+          Anos de prática sem técnica refinada
+          criam vícios no corte.
+
+        </p>
+
+      </div>
+
+      <div class="glass rounded-[24px] p-5">
+
+        <h3 class="font-black mb-3">
+          “E se eu não conseguir aplicar?”
+        </h3>
+
+        <p class="text-zinc-300 text-sm leading-relaxed">
+
+          O treinamento é direto ao ponto.
+          Sem enrolação.
+          Você aprende vendo a aplicação real.
+
+        </p>
+
+      </div>
+
+      <div class="glass rounded-[24px] p-5">
+
+        <h3 class="font-black mb-3">
+          “Não tenho muito tempo”
+        </h3>
+
+        <p class="text-zinc-300 text-sm leading-relaxed">
+
+          Assista no celular quando quiser.
+          O acesso é vitalício.
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- OFERTA -->
+
+    <section class="text-center mt-10 fade">
+
+      <p class="text-zinc-500 line-through text-lg">
+        de R$97,00
+      </p>
+
+      <h2 class="text-5xl font-black text-green-400 mt-2">
+        R$39,90
+      </h2>
+
+      <p class="text-zinc-300 mt-5 leading-relaxed px-3">
+
+        Hoje você entra no treinamento completo
+        por praticamente o valor de um corte de cabelo.
+
+      </p>
+
+      <p class="text-zinc-500 text-sm mt-4 px-4">
+
+        Depois dessa condição promocional,
+        o valor volta para R$97.
+
+      </p>
+
+    </section>
+
+    <!-- CTA FINAL -->
+
+    <section class="mt-8 mb-12 fade">
+
+      <a
+        href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
+        class="cta pulse block w-full text-center py-5 rounded-2xl text-black font-black text-xl"
+      >
+
+        COMEÇAR AGORA
+
+      </a>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    const observer = new IntersectionObserver((entries)=>{
+
+      entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+        }
+
+      });
+
+    });
+
+    document.querySelectorAll(".fade").forEach((el)=>{
+      observer.observe(el);
+    });
+
+  </script>
+
+</body>
+</html>
