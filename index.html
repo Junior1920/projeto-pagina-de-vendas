@@ -2,656 +2,599 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
-
-  <title>Método Santino</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Método Santino — Domine a Tesoura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    :root {
+      --green: #22c55e;
+      --green-dark: #16a34a;
+      --green-dim: rgba(34,197,94,.15);
+      --red: #f87171;
+      --bg: #050505;
+      --card: rgba(14,14,14,.85);
+      --border: rgba(255,255,255,.07);
+      --text: #e4e4e7;
+      --muted: #71717a;
     }
 
-    html{
-      scroll-behavior:smooth;
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      background: var(--bg);
+      overflow-x: hidden;
+      font-family: 'Barlow', sans-serif;
+      color: white;
     }
 
-    body{
-      background:#020202;
-      overflow-x:hidden;
-      font-family:Arial, Helvetica, sans-serif;
-      color:white;
+    h1, h2, h3, .display {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .03em;
     }
 
     /* BACKGROUND */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(130px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 { width:500px; height:500px; background:#16a34a; opacity:.10; top:-200px; left:-200px; }
+    .orb-2 { width:400px; height:400px; background:#22c55e; opacity:.07; bottom:-150px; right:-150px; }
+    .orb-3 { width:300px; height:300px; background:#15803d; opacity:.08; top:50%; left:50%; transform:translate(-50%,-50%); }
 
-    .bg-blur-1{
-      position:fixed;
-      width:350px;
-      height:350px;
-      background:#16a34a;
-      opacity:.12;
-      filter:blur(120px);
-      top:-120px;
-      left:-120px;
-      z-index:0;
+    /* CARD */
+    .glass {
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
     }
 
-    .bg-blur-2{
-      position:fixed;
-      width:350px;
-      height:350px;
-      background:#22c55e;
-      opacity:.10;
-      filter:blur(120px);
-      bottom:-120px;
-      right:-120px;
-      z-index:0;
+    /* URGENCY BAR */
+    .urgency-bar {
+      background: linear-gradient(90deg, #16a34a, #22c55e, #16a34a);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
     }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
-    /* CARDS */
-
-    .glass{
-      background:rgba(18,18,18,.72);
-      backdrop-filter:blur(18px);
-      border:1px solid rgba(255,255,255,.06);
-      box-shadow:0 0 30px rgba(0,0,0,.35);
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      box-shadow: 0 0 30px rgba(34,197,94,.4), 0 4px 20px rgba(0,0,0,.5);
+      transition: .2s;
+      position: relative;
+      overflow: hidden;
     }
-
-    /* BUTTON */
-
-    .cta{
-      background:linear-gradient(
-        135deg,
-        #22c55e,
-        #16a34a
-      );
-
-      box-shadow:
-      0 0 25px rgba(34,197,94,.35);
-
-      transition:.25s;
-    }
-
-    .cta:hover{
-      transform:translateY(-2px) scale(1.01);
-
-      box-shadow:
-      0 0 35px rgba(34,197,94,.55);
-    }
-
-    .cta:active{
-      transform:scale(.98);
-    }
-
-    /* FADE */
-
-    .fade{
+    .cta::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      background: linear-gradient(135deg, rgba(255,255,255,.15), transparent);
       opacity:0;
-      transform:translateY(25px);
-      transition:1s;
+      transition:.2s;
+    }
+    .cta:hover { transform:translateY(-3px) scale(1.01); box-shadow:0 0 50px rgba(34,197,94,.6), 0 8px 30px rgba(0,0,0,.5); }
+    .cta:hover::after { opacity:1; }
+    .cta:active { transform:scale(.98); }
+
+    .pulse { animation: pulse 2.5s ease-in-out infinite; }
+    @keyframes pulse {
+      0%,100% { box-shadow:0 0 30px rgba(34,197,94,.4), 0 4px 20px rgba(0,0,0,.5); }
+      50% { box-shadow:0 0 60px rgba(34,197,94,.7), 0 4px 20px rgba(0,0,0,.5); }
     }
 
-    .fade.show{
-      opacity:1;
-      transform:translateY(0);
+    /* FADE IN */
+    .fade { opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease; }
+    .fade.show { opacity:1; transform:translateY(0); }
+
+    /* PAIN ITEM */
+    .pain-item {
+      border-left: 2px solid var(--red);
+      padding-left: 14px;
     }
 
-    /* IMAGE EFFECT */
+    /* MODULE CARD */
+    .module-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(34,197,94,.18);
+      transition: .3s;
+    }
+    .module-card:hover {
+      border-color: rgba(34,197,94,.5);
+      box-shadow: 0 0 24px rgba(34,197,94,.2), 0 0 60px rgba(34,197,94,.08);
+      transform: translateY(-2px);
+    }
+    .module-card img {
+      transition: .5s;
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .module-card:hover img { transform: scale(1.06); }
+    .module-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.92));
+      padding: 50px 14px 14px;
+    }
+    .module-card .green-line {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #22c55e, transparent);
+      opacity: 0;
+      transition: .3s;
+    }
+    .module-card:hover .green-line { opacity: 1; }
 
-    .img-card{
-      overflow:hidden;
-      position:relative;
+    /* TESTIMONIAL */
+    .testimonial-card {
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px;
+      color: var(--green);
+      opacity: .3;
+      line-height: 1;
     }
 
-    .img-card img{
-      transition:.5s;
+    /* OBJECTION */
+    .objection-card {
+      border-left: 3px solid var(--green);
+      transition: .3s;
+    }
+    .objection-card:hover {
+      border-color: #22c55e;
+      background: rgba(34,197,94,.05);
     }
 
-    .img-card:hover img{
-      transform:scale(1.05);
+    /* PRICE */
+    .price-glow {
+      text-shadow: 0 0 40px rgba(34,197,94,.6);
     }
 
-    /* PULSE */
-
-    .pulse{
-      animation:pulse 2s infinite;
+    /* COUNTDOWN */
+    .countdown-box {
+      background: rgba(34,197,94,.1);
+      border: 1px solid rgba(34,197,94,.2);
+      border-radius: 12px;
+      padding: 8px 14px;
+      text-align: center;
+    }
+    .countdown-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--green);
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
     }
 
-    @keyframes pulse{
-
-      0%{
-        transform:scale(1);
-      }
-
-      50%{
-        transform:scale(1.03);
-      }
-
-      100%{
-        transform:scale(1);
-      }
-
+    /* GUARANTEE */
+    .guarantee-badge {
+      border: 2px solid rgba(34,197,94,.3);
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green-dim);
+      flex-shrink: 0;
     }
 
     /* SCROLLBAR */
+    ::-webkit-scrollbar { width:0; height:0; }
 
-    ::-webkit-scrollbar{
-      width:0;
-      height:0;
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 32px 0;
     }
 
+    /* STICKY CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 12px 16px;
+      background: rgba(5,5,5,.95);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      transform: translateY(100%);
+      transition: .4s;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+
+    .badge {
+      display: inline-block;
+      background: var(--green-dim);
+      border: 1px solid rgba(34,197,94,.3);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
   </style>
 </head>
-
 <body>
 
-  <!-- BLUR -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
 
-  <div class="bg-blur-1"></div>
-  <div class="bg-blur-2"></div>
+  <!-- URGENCY BAR -->
+  <div class="urgency-bar text-black text-center text-xs font-black py-2 px-4 tracking-wider relative z-10">
+    ⚡ OFERTA LIMITADA — PREÇO SOBE PARA R$97 EM BREVE ⚡
+  </div>
 
-  <!-- MAIN -->
-
-  <main class="relative z-10 max-w-md mx-auto px-4 py-5">
+  <main class="relative z-10 max-w-md mx-auto px-4 py-6">
 
     <!-- HERO -->
-
     <section class="fade">
 
-      <img
-        src="images/teste-santino.jpeg"
-        class="w-full rounded-[30px] object-cover shadow-2xl"
-      />
+      <div class="text-center mb-5">
+        <span class="badge">Treinamento Profissional</span>
+      </div>
+
+      <div class="rounded-[28px] overflow-hidden shadow-2xl" style="box-shadow:0 0 60px rgba(34,197,94,.15)">
+        <img src="images/teste-santino.jpeg" class="w-full object-cover" />
+      </div>
 
       <div class="text-center mt-7">
-
-        <h1 class="text-4xl font-black leading-tight">
-
-          Seu corte ainda fica
-          <span class="text-green-400">
-            pesado e sem leveza?
-          </span>
-
+        <h1 class="text-5xl leading-none">
+          SEU CORTE AINDA FICA
+          <span class="text-green-400"> PESADO E SEM LEVEZA?</span>
         </h1>
 
-        <p class="text-zinc-400 mt-5 text-[16px] leading-relaxed">
-
-          O problema não é prática.
-          O problema é que ninguém te ensinou
-          a técnica correta da tesoura.
-
+        <p class="text-zinc-400 mt-4 text-[15px] leading-relaxed">
+          O problema <strong class="text-white">não é falta de prática.</strong><br>
+          É que ninguém nunca te ensinou a técnica correta da tesoura — e você continua carregando esse vício sem saber.
         </p>
-
       </div>
 
     </section>
 
-    <!-- CTA -->
-
-    <section class="mt-7 fade">
-
-      <a
-        href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
-        class="cta pulse block w-full text-center py-4 rounded-2xl text-black font-black text-lg"
-      >
-
-        QUERO APRENDER AGORA
-
+    <!-- CTA HERO -->
+    <section class="mt-6 fade">
+      <a href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
+        class="cta pulse block w-full text-center py-4 rounded-2xl text-black font-black text-lg tracking-wide">
+        QUERO DOMINAR A TESOURA AGORA
       </a>
-
+      <p class="text-center text-zinc-500 text-xs mt-2">🔒 Acesso imediato • Pagamento seguro</p>
     </section>
+
+    <div class="divider"></div>
 
     <!-- DOR -->
+    <section class="fade">
 
-    <section class="glass rounded-[28px] p-5 mt-7 fade">
-
-      <h2 class="text-red-400 font-black text-2xl leading-tight mb-5">
-
-        Você corta…
-        <br>
-        mas sente que ainda falta algo no resultado?
-
+      <h2 class="text-4xl leading-none mb-2">
+        VOCÊ CORTA…
+        <span class="text-red-400">MAS SENTE QUE ALGO FALTA?</span>
       </h2>
 
-      <p class="text-zinc-300 text-sm leading-relaxed mb-6">
-
-        Muitos barbeiros passam anos cortando,
-        mas continuam entregando cortes pesados,
-        sem leveza e sem naturalidade.
-
+      <p class="text-zinc-400 text-sm leading-relaxed mb-7">
+        Muitos barbeiros passam <strong class="text-white">anos na cadeira</strong> sem nunca resolver o problema raiz. Resultado: cortes que nunca chegam no nível que deveriam.
       </p>
 
-      <div class="space-y-5 text-zinc-300">
+      <div class="space-y-5">
 
-        <div class="flex gap-3">
-
-          <span class="text-red-400 text-lg">❌</span>
-
-          <div>
-
-            <p class="font-bold text-white text-sm">
-              O corte fica marcado demais
-            </p>
-
-            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
-              Mesmo tentando tirar peso,
-              o resultado continua artificial.
-            </p>
-
-          </div>
-
+        <div class="pain-item fade">
+          <p class="font-bold text-white text-sm">O corte fica marcado demais</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Você tenta tirar o peso mas o resultado continua artificial, duro, sem fluidez.</p>
         </div>
 
-        <div class="flex gap-3">
-
-          <span class="text-red-400 text-lg">❌</span>
-
-          <div>
-
-            <p class="font-bold text-white text-sm">
-              Falta confiança na tesoura
-            </p>
-
-            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
-              Você corta inseguro,
-              sem saber exatamente o movimento correto.
-            </p>
-
-          </div>
-
+        <div class="pain-item fade">
+          <p class="font-bold text-white text-sm">Falta confiança na tesoura</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Você corta inseguro, sem saber se o movimento está certo — e o cliente sente isso.</p>
         </div>
 
-        <div class="flex gap-3">
-
-          <span class="text-red-400 text-lg">❌</span>
-
-          <div>
-
-            <p class="font-bold text-white text-sm">
-              Os clientes percebem a diferença
-            </p>
-
-            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
-              E isso impede você de cobrar mais caro
-              e se destacar dos barbeiros comuns.
-            </p>
-
-          </div>
-
+        <div class="pain-item fade">
+          <p class="font-bold text-white text-sm">Os clientes percebem a diferença</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Enquanto o barbeiro da barbearia ao lado cobra mais caro e tem fila, você fica estagnado.</p>
         </div>
 
-        <div class="flex gap-3">
-
-          <span class="text-red-400 text-lg">❌</span>
-
-          <div>
-
-            <p class="font-bold text-white text-sm">
-              Você vê outros barbeiros evoluindo
-            </p>
-
-            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
-              Enquanto sente que seus cortes
-              continuam no mesmo nível.
-            </p>
-
-          </div>
-
+        <div class="pain-item fade">
+          <p class="font-bold text-white text-sm">Você vê outros barbeiros evoluindo</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">E a sensação de estar parado no tempo enquanto o mercado avança é sufocante.</p>
         </div>
 
-        <div class="flex gap-3">
-
-          <span class="text-red-400 text-lg">❌</span>
-
-          <div>
-
-            <p class="font-bold text-white text-sm">
-              Falta técnica refinada
-            </p>
-
-            <p class="text-sm text-zinc-400 mt-1 leading-relaxed">
-              Porque ninguém nunca te mostrou
-              o jeito certo de trabalhar a tesoura.
-            </p>
-
-          </div>
-
+        <div class="pain-item fade">
+          <p class="font-bold text-white text-sm">Você nunca aprendeu a técnica correta</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Não é culpa sua — ninguém te ensinou. E é exatamente isso que vamos resolver.</p>
         </div>
 
       </div>
 
     </section>
 
-    <!-- CORTES -->
+    <div class="divider"></div>
 
-    <section class="mt-9 fade">
+    <!-- SOLUÇÃO -->
+    <section class="fade text-center">
+      <span class="badge">A Solução</span>
+      <h2 class="text-4xl mt-3 leading-none">O QUE VOCÊ VAI <span class="text-green-400">APRENDER:</span></h2>
+      <p class="text-zinc-400 text-sm mt-2 mb-7">Técnicas aplicadas em cortes reais, do básico ao refinado.</p>
 
-      <h2 class="text-2xl font-black mb-2">
-        O que você vai aprender:
-      </h2>
+      <div class="grid grid-cols-2 gap-3">
 
-      <p class="text-zinc-400 text-sm mb-6">
-        Técnicas aplicadas em cortes reais.
-      </p>
-
-      <div class="grid grid-cols-2 gap-4">
-
-        <!-- 1 -->
-
-        <div class="glass rounded-[24px] overflow-hidden img-card">
-
-          <img
-            src="images/corte1.PNG"
-            class="w-full h-[190px] object-cover"
-          />
-
-          <div class="p-3">
-            <p class="font-bold text-sm">
-              Controle da Tesoura
-            </p>
+        <div class="glass rounded-[22px] module-card">
+          <div class="green-line"></div>
+          <img src="images/corte1.PNG" style="height:250px;object-position:center top;" class="rounded-t-[22px]" />
+          <div class="module-overlay">
+            <p class="font-black text-sm text-white">Controle da Tesoura</p>
+            <p class="text-zinc-400 text-xs mt-1">Posicionamento correto dos dedos do zero</p>
           </div>
-
         </div>
 
-        <!-- 2 -->
-
-        <div class="glass rounded-[24px] overflow-hidden img-card">
-
-          <img
-            src="images/ps1.jpeg"
-            class="w-full h-[190px] object-cover"
-          />
-
-          <div class="p-3">
-            <p class="font-bold text-sm">
-              Caimento Natural
-            </p>
+        <div class="glass rounded-[22px] module-card">
+          <div class="green-line"></div>
+          <img src="images/ps1.jpeg" style="height:250px;object-position:center top;" class="rounded-t-[22px]" />
+          <div class="module-overlay">
+            <p class="font-black text-sm text-white">Caimento Natural</p>
+            <p class="text-zinc-400 text-xs mt-1">Cabelo que cai como deveria cair</p>
           </div>
-
         </div>
 
-        <!-- 3 -->
-
-        <div class="glass rounded-[24px] overflow-hidden img-card">
-
-          <img
-            src="images/corte3.PNG"
-            class="w-full h-[190px] object-cover"
-          />
-
-          <div class="p-3">
-            <p class="font-bold text-sm">
-              Leveza no Corte
-            </p>
+        <div class="glass rounded-[22px] module-card">
+          <div class="green-line"></div>
+          <img src="images/corte3.PNG" style="height:250px;object-position:center top;" class="rounded-t-[22px]" />
+          <div class="module-overlay">
+            <p class="font-black text-sm text-white">Leveza no Corte</p>
+            <p class="text-zinc-400 text-xs mt-1">Elimine de vez o corte pesado</p>
           </div>
-
         </div>
 
-        <!-- 4 -->
-
-        <div class="glass rounded-[24px] overflow-hidden img-card">
-
-          <img
-            src="images/ps2.jpeg"
-            class="w-full h-[190px] object-cover"
-          />
-
-          <div class="p-3">
-            <p class="font-bold text-sm">
-              Divisão Correta
-            </p>
+        <div class="glass rounded-[22px] module-card">
+          <div class="green-line"></div>
+          <img src="images/ps2.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" />
+          <div class="module-overlay">
+            <p class="font-black text-sm text-white">Divisão Correta</p>
+            <p class="text-zinc-400 text-xs mt-1">Estrutura que todo corte precisa ter</p>
           </div>
-
         </div>
 
-        <!-- 5 -->
-
-        <div class="glass rounded-[24px] overflow-hidden img-card">
-
-          <img
-            src="images/ps3.jpeg"
-            class="w-full h-[190px] object-cover"
-          />
-
-          <div class="p-3">
-            <p class="font-bold text-sm">
-              Acabamento Profissional
-            </p>
+        <div class="glass rounded-[22px] module-card">
+          <div class="green-line"></div>
+          <img src="images/ps3.jpeg" style="height:250px;object-position:center top;" class="rounded-t-[22px]" />
+          <div class="module-overlay">
+            <p class="font-black text-sm text-white">Acabamento Pro</p>
+            <p class="text-zinc-400 text-xs mt-1">O detalhe que separa o bom do excelente</p>
           </div>
-
         </div>
 
-        <!-- 6 -->
-
-        <div class="glass rounded-[24px] overflow-hidden img-card">
-
-          <img
-            src="images/ps4.jpeg"
-            class="w-full h-[190px] object-cover"
-          />
-
-          <div class="p-3">
-            <p class="font-bold text-sm">
-              Estrutura do Corte
-            </p>
+        <div class="glass rounded-[22px] module-card">
+          <div class="green-line"></div>
+          <img src="images/ps4.jpeg" style="height:250px;object-position:center top;" class="rounded-t-[22px]" />
+          <div class="module-overlay">
+            <p class="font-black text-sm text-white">Estrutura do Corte</p>
+            <p class="text-zinc-400 text-xs mt-1">Lógica por trás de todo resultado limpo</p>
           </div>
-
         </div>
 
-        <!-- 7 -->
-
-        <div class="glass rounded-[24px] overflow-hidden img-card col-span-2">
-
-          <img
-            src="images/ps5.jpeg"
-            class="w-full h-[240px] object-cover"
-          />
-
-          <div class="p-4">
-            <p class="font-bold">
-              Técnicas aplicadas em clientes reais
-            </p>
+        <div class="glass rounded-[22px] module-card col-span-2">
+          <div class="green-line"></div>
+          <img src="images/ps5.jpeg" style="height:500px;object-position:center top;" class="rounded-t-[22px]" />
+          <div class="module-overlay">
+            <p class="font-black text-base text-white">Técnicas em Clientes Reais</p>
+            <p class="text-zinc-400 text-xs mt-1">Tudo aplicado ao vivo, sem enrolação</p>
           </div>
-
         </div>
 
       </div>
-
     </section>
+
+    <div class="divider"></div>
 
     <!-- AUTORIDADE -->
+    <section class="glass rounded-[28px] p-6 fade">
 
-    <section class="glass rounded-[28px] p-5 mt-8 fade">
+      <span class="badge">Seu Instrutor</span>
 
-      <h2 class="font-black text-xl mb-4">
-        Quem vai te ensinar?
-      </h2>
+      <h2 class="text-3xl mt-3 mb-4">QUEM VAI TE ENSINAR?</h2>
 
-      <p class="text-zinc-300 leading-relaxed">
-
-        Eu sou
-        <span class="font-bold text-white">
-          Franciel Santino
-        </span>,
-        especialista em cortes na tesoura.
-
-        Ensino barbeiros a dominar técnica,
-        leveza e controle no corte,
-        mesmo que hoje ainda travem no básico.
-
+      <p class="text-zinc-300 leading-relaxed text-sm">
+        Eu sou <strong class="text-white text-base">Franciel Santino</strong>, especialista em cortes na tesoura com anos de cadeira e centenas de barbeiros transformados.
       </p>
 
+      <p class="text-zinc-300 leading-relaxed text-sm mt-3">
+        Desenvolvi um método direto ao ponto pra eliminar os vícios que ninguém te ajudou a corrigir — e te colocar num nível que a maioria dos barbeiros nunca vai alcançar.
+      </p>
+
+      <div class="grid grid-cols-3 gap-3 mt-5">
+        <div class="text-center glass rounded-xl py-3 px-2">
+          <p class="text-green-400 font-black text-xl">100+</p>
+          <p class="text-zinc-400 text-xs mt-1">Alunos formados</p>
+        </div>
+        <div class="text-center glass rounded-xl py-3 px-2">
+          <p class="text-green-400 font-black text-xl">56K</p>
+          <p class="text-zinc-400 text-xs mt-1">Seguidores</p>
+        </div>
+        <div class="text-center glass rounded-xl py-3 px-2">
+          <p class="text-green-400 font-black text-xl">★ 5.0</p>
+          <p class="text-zinc-400 text-xs mt-1">Avaliação</p>
+        </div>
+      </div>
+
     </section>
+
+    <div class="divider"></div>
 
     <!-- FEEDBACKS -->
+    <section class="fade">
+      <span class="badge">Prova Social</span>
+      <h2 class="text-4xl mt-3 mb-2 leading-none">RESULTADOS <span class="text-green-400">REAIS</span></h2>
+      <p class="text-zinc-400 text-sm mb-6">O que barbeiros como você estão falando depois do treinamento.</p>
 
-    <section class="mt-9 fade">
-
-      <h2 class="text-2xl font-black mb-2">
-        Resultados de alunos
-      </h2>
-
-      <p class="text-zinc-400 text-sm mb-6">
-        Feedbacks reais de barbeiros.
-      </p>
-
-      <div class="space-y-4">
-
-        <img
-          src="images/feedback1.jpeg"
-          class="rounded-[24px] w-full glass"
-        />
-
-        <img
-          src="images/feedback2.jpeg"
-          class="rounded-[24px] w-full glass"
-        />
-
-        <img
-          src="images/feedback3.jpeg"
-          class="rounded-[24px] w-full glass"
-        />
-
-        <img
-          src="images/feedback4.jpeg"
-          class="rounded-[24px] w-full glass"
-        />
-
-        <img
-          src="images/feedback5.jpeg"
-          class="rounded-[24px] w-full glass"
-        />
-
+      <div class="space-y-3">
+        <img src="images/feedback1.jpeg" class="rounded-[20px] w-full glass" />
+        <img src="images/feedback2.jpeg" class="rounded-[20px] w-full glass" />
+        <img src="images/feedback3.jpeg" class="rounded-[20px] w-full glass" />
+        <img src="images/feedback4.jpeg" class="rounded-[20px] w-full glass" />
+        <img src="images/feedback5.jpeg" class="rounded-[20px] w-full glass" />
       </div>
-
     </section>
+
+    <div class="divider"></div>
 
     <!-- OBJEÇÕES -->
+    <section class="fade">
+      <h2 class="text-4xl leading-none mb-6">AINDA TEM <span class="text-green-400">DÚVIDAS?</span></h2>
 
-    <section class="mt-8 space-y-4 fade">
+      <div class="space-y-3">
 
-      <div class="glass rounded-[24px] p-5">
+        <div class="glass objection-card rounded-[20px] p-5">
+          <h3 class="font-black text-base mb-2">"Mas eu já corto há anos..."</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            É exatamente aí que mora o problema. <strong class="text-white">Anos de prática sem técnica correta criam vícios</strong> que você nem percebe. O Método Santino foi feito para quebrar isso.
+          </p>
+        </div>
 
-        <h3 class="font-black mb-3">
-          “Mas eu já corto há anos...”
-        </h3>
+        <div class="glass objection-card rounded-[20px] p-5">
+          <h3 class="font-black text-base mb-2">"E se eu não conseguir aplicar?"</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            O treinamento é <strong class="text-white">visual e direto ao ponto</strong>. Você aprende vendo a técnica sendo executada em clientes reais. Se enxergou, consegue replicar.
+          </p>
+        </div>
 
-        <p class="text-zinc-300 text-sm leading-relaxed">
+        <div class="glass objection-card rounded-[20px] p-5">
+          <h3 class="font-black text-base mb-2">"Não tenho tempo pra mais um curso"</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Assista no celular, entre um cliente e outro, no horário que quiser. <strong class="text-white">Acesso vitalício</strong> — sem prazo pra acabar.
+          </p>
+        </div>
 
-          É exatamente aí que muitos barbeiros travam.
-          Anos de prática sem técnica refinada
-          criam vícios no corte.
-
-        </p>
-
-      </div>
-
-      <div class="glass rounded-[24px] p-5">
-
-        <h3 class="font-black mb-3">
-          “E se eu não conseguir aplicar?”
-        </h3>
-
-        <p class="text-zinc-300 text-sm leading-relaxed">
-
-          O treinamento é direto ao ponto.
-          Sem enrolação.
-          Você aprende vendo a aplicação real.
-
-        </p>
-
-      </div>
-
-      <div class="glass rounded-[24px] p-5">
-
-        <h3 class="font-black mb-3">
-          “Não tenho muito tempo”
-        </h3>
-
-        <p class="text-zinc-300 text-sm leading-relaxed">
-
-          Assista no celular quando quiser.
-          O acesso é vitalício.
-
-        </p>
+        <div class="glass objection-card rounded-[20px] p-5">
+          <h3 class="font-black text-base mb-2">"Vale mesmo R$47,00?"</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Um único cliente a mais por semana por causa da sua evolução técnica já paga o treinamento <strong class="text-white">mais de 10 vezes</strong>. A pergunta certa é: quanto custa continuar igual?
+          </p>
+        </div>
 
       </div>
-
     </section>
 
+    <div class="divider"></div>
+
     <!-- OFERTA -->
+    <section class="fade text-center">
 
-    <section class="text-center mt-10 fade">
+      <span class="badge">Oferta Especial</span>
 
-      <p class="text-zinc-500 line-through text-lg">
-        de R$97,00
+      <h2 class="text-4xl mt-4 mb-2 leading-none">GARANTA AGORA <span class="text-green-400">COM DESCONTO</span></h2>
+
+      <!-- COUNTDOWN -->
+      <p class="text-zinc-400 text-sm mb-5">Essa condição é por tempo limitado</p>
+      <div class="flex justify-center gap-3 mb-7" id="countdown-wrap">
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-h">00</div>
+          <div class="countdown-label">horas</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-m">00</div>
+          <div class="countdown-label">min</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-s">00</div>
+          <div class="countdown-label">seg</div>
+        </div>
+      </div>
+
+      <p class="text-zinc-500 line-through text-base">de R$97,00</p>
+      <p class="price-glow text-green-400 mt-1" style="font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:1">R$47,00</p>
+
+      <p class="text-zinc-300 mt-4 leading-relaxed px-2 text-sm">
+        Menos do que um corte de cabelo. <strong class="text-white">Uma única vez.</strong><br>
+        Acesso completo, vitalício, pra sempre.
       </p>
 
-      <h2 class="text-5xl font-black text-green-400 mt-2">
-        R$39,90
-      </h2>
-
-      <p class="text-zinc-300 mt-5 leading-relaxed px-3">
-
-        Hoje você entra no treinamento completo
-        por praticamente o valor de um corte de cabelo.
-
-      </p>
-
-      <p class="text-zinc-500 text-sm mt-4 px-4">
-
-        Depois dessa condição promocional,
-        o valor volta para R$97.
-
-      </p>
+      <!-- GUARANTEE -->
+      <div class="glass rounded-[20px] p-5 mt-6 flex items-center gap-4 text-left">
+        <div class="guarantee-badge">
+          <span style="font-size:32px">🛡️</span>
+        </div>
+        <div>
+          <p class="font-black text-sm">Compra 100% segura</p>
+          <p class="text-zinc-400 text-xs mt-1 leading-relaxed">Plataforma Kiwify com proteção total. Seus dados estão seguros.</p>
+        </div>
+      </div>
 
     </section>
 
     <!-- CTA FINAL -->
-
-    <section class="mt-8 mb-12 fade">
-
-      <a
-        href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
-        class="cta pulse block w-full text-center py-5 rounded-2xl text-black font-black text-xl"
-      >
-
-        COMEÇAR AGORA
-
+    <section class="mt-8 mb-20 fade">
+      <a href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
+        class="cta pulse block w-full text-center py-5 rounded-2xl text-black font-black text-xl tracking-wide">
+        QUERO DOMINAR A TESOURA POR R$47,00
       </a>
-
+      <p class="text-center text-zinc-500 text-xs mt-3">🔒 Pagamento seguro • Acesso imediato • Vitalício</p>
+      <p class="text-center text-zinc-600 text-xs mt-1">Depois dessa oferta o valor volta para R$97,00</p>
     </section>
 
   </main>
 
+  <!-- STICKY CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
+      class="cta block w-full text-center py-3.5 rounded-xl text-black font-black text-base tracking-wide">
+      COMEÇAR POR R$47,00 →
+    </a>
+  </div>
+
   <script>
+    // FADE OBSERVER
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
-    const observer = new IntersectionObserver((entries)=>{
+    // COUNTDOWN — 2h timer stored in sessionStorage
+    function initCountdown() {
+      const key = 'santino_deadline';
+      let deadline = sessionStorage.getItem(key);
+      if (!deadline) {
+        deadline = Date.now() + 2 * 60 * 60 * 1000;
+        sessionStorage.setItem(key, deadline);
+      }
+      function update() {
+        const diff = Math.max(0, deadline - Date.now());
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+        document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+        if (diff > 0) setTimeout(update, 1000);
+      }
+      update();
+    }
+    initCountdown();
 
-      entries.forEach((entry)=>{
-
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-        }
-
-      });
-
+    // STICKY CTA
+    const sticky = document.getElementById('stickyCta');
+    window.addEventListener('scroll', () => {
+      sticky.classList.toggle('visible', window.scrollY > 400);
     });
-
-    document.querySelectorAll(".fade").forEach((el)=>{
-      observer.observe(el);
-    });
-
   </script>
-
 </body>
 </html>
