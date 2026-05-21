@@ -6,7 +6,7 @@
   <title>Método Santino — Domine a Tesoura</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
+ 
   <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -31,7 +31,7 @@
     src="https://www.facebook.com/tr?id=1507918520681653&ev=PageView&noscript=1"/>
   </noscript>
   <!-- Fim Meta Pixel -->
-
+ 
   <style>
     :root {
       --green: #22c55e;
@@ -44,22 +44,22 @@
       --text: #e4e4e7;
       --muted: #71717a;
     }
-
+ 
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-
+ 
     body {
       background: var(--bg);
       overflow-x: hidden;
       font-family: 'Barlow', sans-serif;
       color: white;
     }
-
+ 
     h1, h2, h3, .display {
       font-family: 'Bebas Neue', sans-serif;
       letter-spacing: .03em;
     }
-
+ 
     .bg-orb {
       position: fixed;
       border-radius: 50%;
@@ -70,20 +70,20 @@
     .orb-1 { width:500px; height:500px; background:#16a34a; opacity:.10; top:-200px; left:-200px; }
     .orb-2 { width:400px; height:400px; background:#22c55e; opacity:.07; bottom:-150px; right:-150px; }
     .orb-3 { width:300px; height:300px; background:#15803d; opacity:.08; top:50%; left:50%; transform:translate(-50%,-50%); }
-
+ 
     .glass {
       background: var(--card);
       backdrop-filter: blur(20px);
       border: 1px solid var(--border);
     }
-
+ 
     .urgency-bar {
       background: linear-gradient(90deg, #16a34a, #22c55e, #16a34a);
       background-size: 200% 100%;
       animation: shimmer 3s linear infinite;
     }
     @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-
+ 
     .cta {
       background: linear-gradient(135deg, #22c55e, #16a34a);
       box-shadow: 0 0 30px rgba(34,197,94,.4), 0 4px 20px rgba(0,0,0,.5);
@@ -102,21 +102,21 @@
     .cta:hover { transform:translateY(-3px) scale(1.01); box-shadow:0 0 50px rgba(34,197,94,.6), 0 8px 30px rgba(0,0,0,.5); }
     .cta:hover::after { opacity:1; }
     .cta:active { transform:scale(.98); }
-
+ 
     .pulse { animation: pulse 2.5s ease-in-out infinite; }
     @keyframes pulse {
       0%,100% { box-shadow:0 0 30px rgba(34,197,94,.4), 0 4px 20px rgba(0,0,0,.5); }
       50% { box-shadow:0 0 60px rgba(34,197,94,.7), 0 4px 20px rgba(0,0,0,.5); }
     }
-
+ 
     .fade { opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease; }
     .fade.show { opacity:1; transform:translateY(0); }
-
+ 
     .pain-item {
       border-left: 2px solid var(--red);
       padding-left: 14px;
     }
-
+ 
     .module-card {
       position: relative;
       overflow: hidden;
@@ -151,7 +151,7 @@
       transition: .3s;
     }
     .module-card:hover .green-line { opacity: 1; }
-
+ 
     .testimonial-card { position: relative; }
     .testimonial-card::before {
       content: '"';
@@ -164,7 +164,7 @@
       opacity: .3;
       line-height: 1;
     }
-
+ 
     .objection-card {
       border-left: 3px solid var(--green);
       transition: .3s;
@@ -173,11 +173,11 @@
       border-color: #22c55e;
       background: rgba(34,197,94,.05);
     }
-
+ 
     .price-glow {
       text-shadow: 0 0 40px rgba(34,197,94,.6);
     }
-
+ 
     .countdown-box {
       background: rgba(34,197,94,.1);
       border: 1px solid rgba(34,197,94,.2);
@@ -197,7 +197,7 @@
       text-transform: uppercase;
       letter-spacing: .08em;
     }
-
+ 
     .guarantee-badge {
       border: 2px solid rgba(34,197,94,.3);
       border-radius: 50%;
@@ -209,15 +209,15 @@
       background: var(--green-dim);
       flex-shrink: 0;
     }
-
+ 
     ::-webkit-scrollbar { width:0; height:0; }
-
+ 
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--border), transparent);
       margin: 32px 0;
     }
-
+ 
     .sticky-cta {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -230,7 +230,7 @@
       transition: .4s;
     }
     .sticky-cta.visible { transform: translateY(0); }
-
+ 
     .badge {
       display: inline-block;
       background: var(--green-dim);
@@ -246,17 +246,17 @@
   </style>
 </head>
 <body>
-
+ 
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
   <div class="bg-orb orb-3"></div>
-
+ 
   <div class="urgency-bar text-black text-center text-xs font-black py-2 px-4 tracking-wider relative z-10">
     ⚡ OFERTA LIMITADA — PREÇO SOBE PARA R$97 EM BREVE ⚡
   </div>
-
+ 
   <main class="relative z-10 max-w-md mx-auto px-4 py-6">
-
+ 
     <!-- HERO -->
     <section class="fade">
       <div class="text-center mb-5">
@@ -276,19 +276,19 @@
         </p>
       </div>
     </section>
-
+ 
     <!-- CTA HERO -->
     <section class="mt-6 fade">
-      <a href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
+      <a href="https://pay.kiwify.com.br/smb6JXZ"
         onclick="fbq('track','InitiateCheckout',{content_name:'Método Santino',value:47.00,currency:'BRL'})"
         class="cta pulse block w-full text-center py-4 rounded-2xl text-black font-black text-lg tracking-wide">
         QUERO DOMINAR A TESOURA AGORA
       </a>
       <p class="text-center text-zinc-500 text-xs mt-2">🔒 Acesso imediato • Pagamento seguro</p>
     </section>
-
+ 
     <div class="divider"></div>
-
+ 
     <!-- DOR -->
     <section class="fade">
       <h2 class="text-4xl leading-none mb-2">
@@ -321,15 +321,15 @@
         </div>
       </div>
     </section>
-
+ 
     <div class="divider"></div>
-
+ 
     <!-- SOLUÇÃO -->
     <section class="fade text-center">
       <span class="badge">A Solução</span>
       <h2 class="text-4xl mt-3 leading-none">O QUE VOCÊ VAI <span class="text-green-400">APRENDER:</span></h2>
       <p class="text-zinc-400 text-sm mt-2 mb-7">Técnicas aplicadas em cortes reais, do básico ao refinado.</p>
-
+ 
       <div class="grid grid-cols-2 gap-3">
         <div class="glass rounded-[22px] module-card">
           <div class="green-line"></div>
@@ -389,9 +389,9 @@
         </div>
       </div>
     </section>
-
+ 
     <div class="divider"></div>
-
+ 
     <!-- AUTORIDADE -->
     <section class="glass rounded-[28px] p-6 fade">
       <span class="badge">Seu Instrutor</span>
@@ -417,9 +417,9 @@
         </div>
       </div>
     </section>
-
+ 
     <div class="divider"></div>
-
+ 
     <!-- FEEDBACKS -->
     <section class="fade">
       <span class="badge">Prova Social</span>
@@ -433,9 +433,9 @@
         <img src="images/feedback5.jpeg" class="rounded-[20px] w-full glass" />
       </div>
     </section>
-
+ 
     <div class="divider"></div>
-
+ 
     <!-- OBJEÇÕES -->
     <section class="fade">
       <h2 class="text-4xl leading-none mb-6">AINDA TEM <span class="text-green-400">DÚVIDAS?</span></h2>
@@ -466,9 +466,9 @@
         </div>
       </div>
     </section>
-
+ 
     <div class="divider"></div>
-
+ 
     <!-- OFERTA -->
     <section class="fade text-center">
       <span class="badge">Oferta Especial</span>
@@ -504,10 +504,10 @@
         </div>
       </div>
     </section>
-
+ 
     <!-- CTA FINAL -->
     <section class="mt-8 mb-20 fade">
-      <a href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
+      <a href="https://pay.kiwify.com.br/smb6JXZ"
         onclick="fbq('track','InitiateCheckout',{content_name:'Método Santino',value:47.00,currency:'BRL'})"
         class="cta pulse block w-full text-center py-5 rounded-2xl text-black font-black text-xl tracking-wide">
         QUERO DOMINAR A TESOURA POR R$47,00
@@ -515,24 +515,24 @@
       <p class="text-center text-zinc-500 text-xs mt-3">🔒 Pagamento seguro • Acesso imediato • Vitalício</p>
       <p class="text-center text-zinc-600 text-xs mt-1">Depois dessa oferta o valor volta para R$97,00</p>
     </section>
-
+ 
   </main>
-
+ 
   <!-- STICKY CTA -->
   <div class="sticky-cta" id="stickyCta">
-    <a href="https://pay.kiwify.com.br/smb6JXZ?afid=KAZTcVFH"
+    <a href="https://pay.kiwify.com.br/smb6JXZ"
       onclick="fbq('track','InitiateCheckout',{content_name:'Método Santino',value:47.00,currency:'BRL'})"
       class="cta block w-full text-center py-3.5 rounded-xl text-black font-black text-base tracking-wide">
       COMEÇAR POR R$47,00 →
     </a>
   </div>
-
+ 
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade').forEach(el => observer.observe(el));
-
+ 
     function initCountdown() {
       const key = 'santino_deadline';
       let deadline = sessionStorage.getItem(key);
@@ -553,7 +553,7 @@
       update();
     }
     initCountdown();
-
+ 
     const sticky = document.getElementById('stickyCta');
     window.addEventListener('scroll', () => {
       sticky.classList.toggle('visible', window.scrollY > 400);
@@ -561,3 +561,4 @@
   </script>
 </body>
 </html>
+ 
