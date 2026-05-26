@@ -6,7 +6,7 @@
   <title>Método Santino — Domine a Tesoura</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
- 
+
   <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -40,8 +40,7 @@
     <img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1507918520681653&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- Fim Meta Pixel -->
- 
+
   <style>
     :root {
       --green: #22c55e;
@@ -54,22 +53,22 @@
       --text: #e4e4e7;
       --muted: #71717a;
     }
- 
+
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
- 
+
     body {
       background: var(--bg);
       overflow-x: hidden;
       font-family: 'Barlow', sans-serif;
       color: white;
     }
- 
+
     h1, h2, h3, .display {
       font-family: 'Bebas Neue', sans-serif;
       letter-spacing: .03em;
     }
- 
+
     .bg-orb {
       position: fixed;
       border-radius: 50%;
@@ -80,20 +79,20 @@
     .orb-1 { width:500px; height:500px; background:#16a34a; opacity:.10; top:-200px; left:-200px; }
     .orb-2 { width:400px; height:400px; background:#22c55e; opacity:.07; bottom:-150px; right:-150px; }
     .orb-3 { width:300px; height:300px; background:#15803d; opacity:.08; top:50%; left:50%; transform:translate(-50%,-50%); }
- 
+
     .glass {
       background: var(--card);
       backdrop-filter: blur(20px);
       border: 1px solid var(--border);
     }
- 
+
     .urgency-bar {
       background: linear-gradient(90deg, #16a34a, #22c55e, #16a34a);
       background-size: 200% 100%;
       animation: shimmer 3s linear infinite;
     }
     @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
- 
+
     .cta {
       background: linear-gradient(135deg, #22c55e, #16a34a);
       box-shadow: 0 0 30px rgba(34,197,94,.4), 0 4px 20px rgba(0,0,0,.5);
@@ -112,21 +111,21 @@
     .cta:hover { transform:translateY(-3px) scale(1.01); box-shadow:0 0 50px rgba(34,197,94,.6), 0 8px 30px rgba(0,0,0,.5); }
     .cta:hover::after { opacity:1; }
     .cta:active { transform:scale(.98); }
- 
+
     .pulse { animation: pulse 2.5s ease-in-out infinite; }
     @keyframes pulse {
       0%,100% { box-shadow:0 0 30px rgba(34,197,94,.4), 0 4px 20px rgba(0,0,0,.5); }
       50% { box-shadow:0 0 60px rgba(34,197,94,.7), 0 4px 20px rgba(0,0,0,.5); }
     }
- 
+
     .fade { opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease; }
     .fade.show { opacity:1; transform:translateY(0); }
- 
+
     .pain-item {
       border-left: 2px solid var(--red);
       padding-left: 14px;
     }
- 
+
     .module-card {
       position: relative;
       overflow: hidden;
@@ -161,20 +160,7 @@
       transition: .3s;
     }
     .module-card:hover .green-line { opacity: 1; }
- 
-    .testimonial-card { position: relative; }
-    .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: -10px;
-      left: 14px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 80px;
-      color: var(--green);
-      opacity: .3;
-      line-height: 1;
-    }
- 
+
     .objection-card {
       border-left: 3px solid var(--green);
       transition: .3s;
@@ -183,11 +169,11 @@
       border-color: #22c55e;
       background: rgba(34,197,94,.05);
     }
- 
+
     .price-glow {
       text-shadow: 0 0 40px rgba(34,197,94,.6);
     }
- 
+
     .countdown-box {
       background: rgba(34,197,94,.1);
       border: 1px solid rgba(34,197,94,.2);
@@ -207,7 +193,7 @@
       text-transform: uppercase;
       letter-spacing: .08em;
     }
- 
+
     .guarantee-badge {
       border: 2px solid rgba(34,197,94,.3);
       border-radius: 50%;
@@ -219,15 +205,15 @@
       background: var(--green-dim);
       flex-shrink: 0;
     }
- 
+
     ::-webkit-scrollbar { width:0; height:0; }
- 
+
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--border), transparent);
       margin: 32px 0;
     }
- 
+
     .sticky-cta {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -240,7 +226,7 @@
       transition: .4s;
     }
     .sticky-cta.visible { transform: translateY(0); }
- 
+
     .badge {
       display: inline-block;
       background: var(--green-dim);
@@ -253,97 +239,155 @@
       padding: 4px 12px;
       border-radius: 999px;
     }
+
+    /* SOCIAL PROOF BAR */
+    .social-proof-bar {
+      background: rgba(34,197,94,.08);
+      border: 1px solid rgba(34,197,94,.15);
+      border-radius: 14px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ALERT BOX */
+    .alert-box {
+      background: rgba(248,113,113,.08);
+      border: 1px solid rgba(248,113,113,.2);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
   </style>
 </head>
 <body>
- 
+
+  <!-- Fix navegador interno Instagram/Facebook -->
+  <script>
+    (function() {
+      var ua = navigator.userAgent || '';
+      var isFBApp = ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1 || ua.indexOf('Instagram') > -1;
+      if (isFBApp) {
+        // Desativa webkit message handlers pra evitar erro
+        if (typeof window.webkit === 'undefined') {
+          window.webkit = { messageHandlers: {} };
+        }
+      }
+    })();
+  </script>
+
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
   <div class="bg-orb orb-3"></div>
- 
-  <div class="urgency-bar text-black text-center text-xs font-black py-2 px-4 tracking-wider relative z-10">
-    ⚡ OFERTA LIMITADA — PREÇO SOBE PARA R$97 EM BREVE ⚡
-  </div>
- 
+
+  <a href="https://pay.kiwify.com.br/smb6JXZ"
+    onclick="fbq('track','InitiateCheckout',{content_name:'Método Santino',value:39.90,currency:'BRL'})"
+    class="urgency-bar text-black text-center text-xs font-black py-2 px-4 tracking-wider relative z-10 block cursor-pointer">
+    ⚡ OFERTA LIMITADA — CLIQUE E GARANTA POR R$39,90 AGORA ⚡
+  </a>
+
   <main class="relative z-10 max-w-md mx-auto px-4 py-6">
- 
+
     <!-- HERO -->
     <section class="fade">
-      <div class="text-center mb-5">
-        <span class="badge">Treinamento Profissional</span>
+      <div class="text-center mb-4">
+        <a href="https://pay.kiwify.com.br/smb6JXZ"
+          onclick="fbq('track','InitiateCheckout',{content_name:'Método Santino',value:39.90,currency:'BRL'})">
+          <span class="badge" style="cursor:pointer;">✂️ Treinamento Profissional — Garanta Agora</span>
+        </a>
       </div>
+
       <div class="rounded-[28px] overflow-hidden shadow-2xl" style="box-shadow:0 0 60px rgba(34,197,94,.15)">
-        <img src="images/teste-santino.jpeg" class="w-full object-cover" />
+        <img src="images/teste-santino.jpeg" class="w-full object-cover" fetchpriority="high" />
       </div>
-      <div class="text-center mt-7">
+
+      <div class="text-center mt-6">
         <h1 class="text-5xl leading-none">
           SEU CORTE AINDA FICA
           <span class="text-green-400"> PESADO E SEM LEVEZA?</span>
         </h1>
-        <p class="text-zinc-400 mt-4 text-[15px] leading-relaxed">
-          O problema <strong class="text-white">não é falta de prática.</strong><br>
-          É que ninguém nunca te ensinou a técnica correta da tesoura — e você continua carregando esse vício sem saber.
+
+        <p class="text-zinc-300 mt-4 text-[15px] leading-relaxed font-semibold">
+          Você está perdendo clientes pra barbeiros com <strong class="text-white">menos tempo de cadeira que você</strong> — só porque eles dominaram a tesoura e você não.
+        </p>
+
+        <p class="text-zinc-500 mt-3 text-sm leading-relaxed">
+          O problema não é prática. É que ninguém nunca te ensinou a técnica correta — e você carrega esse vício sem saber.
         </p>
       </div>
-    </section>
- 
-    <!-- CTA HERO -->
-    <section class="mt-6 fade">
+
+      <!-- PROVA SOCIAL NUMÉRICA -->
+      <div class="social-proof-bar mt-5">
+        <span style="font-size:22px">✂️</span>
+        <p class="text-sm text-zinc-300 leading-snug">
+          <strong class="text-green-400">+100 barbeiros</strong> já dominaram a tesoura com o Método Santino — seguido por <strong class="text-white">66 mil pessoas</strong> no Instagram
+        </p>
+      </div>
+
+      <!-- CTA TOPO — logo abaixo da prova social -->
       <a href="https://pay.kiwify.com.br/smb6JXZ"
         onclick="fbq('track','InitiateCheckout',{content_name:'Método Santino',value:39.90,currency:'BRL'})"
-        class="cta pulse block w-full text-center py-4 rounded-2xl text-black font-black text-lg tracking-wide">
-        QUERO DOMINAR A TESOURA AGORA
+        class="cta pulse block w-full text-center py-4 rounded-2xl text-black font-black text-lg tracking-wide mt-5">
+        QUERO DOMINAR A TESOURA — R$39,90
       </a>
-      <p class="text-center text-zinc-500 text-xs mt-2">🔒 Acesso imediato • Pagamento seguro</p>
+      <p class="text-center text-zinc-500 text-xs mt-2">🔒 Acesso imediato • Pagamento seguro • Vitalício</p>
+
     </section>
- 
+
     <div class="divider"></div>
- 
-    <!-- DOR -->
+
+    <!-- ALERTA -->
     <section class="fade">
+      <div class="alert-box mb-7">
+        <p class="text-red-400 font-black text-sm mb-1">⚠️ Isso está acontecendo agora:</p>
+        <p class="text-zinc-300 text-sm leading-relaxed">Enquanto você lê isso, outro barbeiro da sua cidade está aprendendo a tesoura. Ele vai cobrar mais caro, ter a fila que você quer e atender os clientes que hoje vão embora da sua cadeira insatisfeitos.</p>
+      </div>
+
+      <!-- DOR -->
       <h2 class="text-4xl leading-none mb-2">
         VOCÊ CORTA…
         <span class="text-red-400">MAS SENTE QUE ALGO FALTA?</span>
       </h2>
       <p class="text-zinc-400 text-sm leading-relaxed mb-7">
-        Muitos barbeiros passam <strong class="text-white">anos na cadeira</strong> sem nunca resolver o problema raiz. Resultado: cortes que nunca chegam no nível que deveriam.
+        Muitos barbeiros passam <strong class="text-white">anos na cadeira</strong> sem nunca resolver o problema raiz. O resultado é sempre o mesmo — cortes que nunca chegam no nível que deveriam.
       </p>
+
       <div class="space-y-5">
-        <div class="pain-item fade">
+        <div class="pain-item">
           <p class="font-bold text-white text-sm">O corte fica marcado demais</p>
-          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Você tenta tirar o peso mas o resultado continua artificial, duro, sem fluidez.</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Você tenta tirar o peso mas o resultado continua artificial, duro, sem fluidez. E o cliente percebe.</p>
         </div>
-        <div class="pain-item fade">
+        <div class="pain-item">
           <p class="font-bold text-white text-sm">Falta confiança na tesoura</p>
-          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Você corta inseguro, sem saber se o movimento está certo — e o cliente sente isso.</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Você corta inseguro, sem saber se o movimento está certo — e essa insegurança aparece no resultado final.</p>
         </div>
-        <div class="pain-item fade">
-          <p class="font-bold text-white text-sm">Os clientes percebem a diferença</p>
-          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Enquanto o barbeiro da barbearia ao lado cobra mais caro e tem fila, você fica estagnado.</p>
+        <div class="pain-item">
+          <p class="font-bold text-white text-sm">Os clientes não voltam</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Eles não falam nada. Só somem. E você nunca sabe exatamente por quê.</p>
         </div>
-        <div class="pain-item fade">
+        <div class="pain-item">
           <p class="font-bold text-white text-sm">Você vê outros barbeiros evoluindo</p>
-          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">E a sensação de estar parado no tempo enquanto o mercado avança é sufocante.</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Barbeiros com menos experiência que você cobrando mais, com mais clientes, mais reconhecimento.</p>
         </div>
-        <div class="pain-item fade">
-          <p class="font-bold text-white text-sm">Você nunca aprendeu a técnica correta</p>
-          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Não é culpa sua — ninguém te ensinou. E é exatamente isso que vamos resolver.</p>
+        <div class="pain-item">
+          <p class="font-bold text-white text-sm">Nunca te ensinaram a técnica correta</p>
+          <p class="text-zinc-400 text-sm mt-1 leading-relaxed">Não é culpa sua. O mercado nunca te deu isso. Mas a partir de hoje isso muda.</p>
         </div>
       </div>
     </section>
- 
+
     <div class="divider"></div>
- 
+
     <!-- SOLUÇÃO -->
     <section class="fade text-center">
       <span class="badge">A Solução</span>
-      <h2 class="text-4xl mt-3 leading-none">O QUE VOCÊ VAI <span class="text-green-400">APRENDER:</span></h2>
-      <p class="text-zinc-400 text-sm mt-2 mb-7">Técnicas aplicadas em cortes reais, do básico ao refinado.</p>
- 
+      <h2 class="text-4xl mt-3 leading-none">O QUE VOCÊ VAI <span class="text-green-400">DOMINAR:</span></h2>
+      <p class="text-zinc-400 text-sm mt-2 mb-7">Técnicas reais aplicadas em clientes reais. Sem enrolação.</p>
+
       <div class="grid grid-cols-2 gap-3">
         <div class="glass rounded-[22px] module-card">
           <div class="green-line"></div>
-          <img src="images/corte1.PNG" style="height:220px;object-position:center top;" class="rounded-t-[22px]" />
+          <img src="images/corte1.PNG" style="height:220px;object-position:center top;" class="rounded-t-[22px]" loading="lazy" />
           <div class="module-overlay">
             <p class="font-black text-sm text-white">Controle da Tesoura</p>
             <p class="text-zinc-400 text-xs mt-1">Posicionamento correto dos dedos do zero</p>
@@ -351,7 +395,7 @@
         </div>
         <div class="glass rounded-[22px] module-card">
           <div class="green-line"></div>
-          <img src="images/ps1.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" />
+          <img src="images/ps1.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" loading="lazy" />
           <div class="module-overlay">
             <p class="font-black text-sm text-white">Caimento Natural</p>
             <p class="text-zinc-400 text-xs mt-1">Cabelo que cai como deveria cair</p>
@@ -359,7 +403,7 @@
         </div>
         <div class="glass rounded-[22px] module-card">
           <div class="green-line"></div>
-          <img src="images/corte3.PNG" style="height:220px;object-position:center top;" class="rounded-t-[22px]" />
+          <img src="images/corte3.PNG" style="height:220px;object-position:center top;" class="rounded-t-[22px]" loading="lazy" />
           <div class="module-overlay">
             <p class="font-black text-sm text-white">Leveza no Corte</p>
             <p class="text-zinc-400 text-xs mt-1">Elimine de vez o corte pesado</p>
@@ -367,7 +411,7 @@
         </div>
         <div class="glass rounded-[22px] module-card">
           <div class="green-line"></div>
-          <img src="images/ps2.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" />
+          <img src="images/ps2.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" loading="lazy" />
           <div class="module-overlay">
             <p class="font-black text-sm text-white">Divisão Correta</p>
             <p class="text-zinc-400 text-xs mt-1">Estrutura que todo corte precisa ter</p>
@@ -375,7 +419,7 @@
         </div>
         <div class="glass rounded-[22px] module-card">
           <div class="green-line"></div>
-          <img src="images/ps3.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" />
+          <img src="images/ps3.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" loading="lazy" />
           <div class="module-overlay">
             <p class="font-black text-sm text-white">Acabamento Pro</p>
             <p class="text-zinc-400 text-xs mt-1">O detalhe que separa o bom do excelente</p>
@@ -383,7 +427,7 @@
         </div>
         <div class="glass rounded-[22px] module-card">
           <div class="green-line"></div>
-          <img src="images/ps4.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" />
+          <img src="images/ps4.jpeg" style="height:220px;object-position:center top;" class="rounded-t-[22px]" loading="lazy" />
           <div class="module-overlay">
             <p class="font-black text-sm text-white">Estrutura do Corte</p>
             <p class="text-zinc-400 text-xs mt-1">Lógica por trás de todo resultado limpo</p>
@@ -391,7 +435,7 @@
         </div>
         <div class="glass rounded-[22px] module-card col-span-2">
           <div class="green-line"></div>
-          <img src="images/ps5.jpeg" style="height:280px;object-position:center top;" class="rounded-t-[22px]" />
+          <img src="images/ps5.jpeg" style="height:280px;object-position:center top;" class="rounded-t-[22px]" loading="lazy" />
           <div class="module-overlay">
             <p class="font-black text-base text-white">Técnicas em Clientes Reais</p>
             <p class="text-zinc-400 text-xs mt-1">Tudo aplicado ao vivo, sem enrolação</p>
@@ -399,18 +443,18 @@
         </div>
       </div>
     </section>
- 
+
     <div class="divider"></div>
- 
+
     <!-- AUTORIDADE -->
     <section class="glass rounded-[28px] p-6 fade">
       <span class="badge">Seu Instrutor</span>
       <h2 class="text-3xl mt-3 mb-4">QUEM VAI TE ENSINAR?</h2>
       <p class="text-zinc-300 leading-relaxed text-sm">
-        Eu sou <strong class="text-white text-base">Franciel Santino</strong>, especialista em cortes na tesoura com anos de cadeira e centenas de barbeiros transformados.
+        Eu sou <strong class="text-white text-base">Franciel Santino</strong>, especialista em cortes na tesoura. Já transformei a técnica de centenas de barbeiros que estavam exatamente onde você está agora — travados, sem confiança, entregando menos do que poderiam.
       </p>
       <p class="text-zinc-300 leading-relaxed text-sm mt-3">
-        Desenvolvi um método direto ao ponto pra eliminar os vícios que ninguém te ajudou a corrigir — e te colocar num nível que a maioria dos barbeiros nunca vai alcançar.
+        Desenvolvi um método direto ao ponto que elimina os vícios que ninguém nunca te ajudou a corrigir. <strong class="text-white">Sem teoria. Só técnica aplicada em clientes reais.</strong>
       </p>
       <div class="grid grid-cols-3 gap-3 mt-5">
         <div class="text-center glass rounded-xl py-3 px-2">
@@ -418,7 +462,7 @@
           <p class="text-zinc-400 text-xs mt-1">Alunos formados</p>
         </div>
         <div class="text-center glass rounded-xl py-3 px-2">
-          <p class="text-green-400 font-black text-xl">56K</p>
+          <p class="text-green-400 font-black text-xl">66K</p>
           <p class="text-zinc-400 text-xs mt-1">Seguidores</p>
         </div>
         <div class="text-center glass rounded-xl py-3 px-2">
@@ -427,25 +471,25 @@
         </div>
       </div>
     </section>
- 
+
     <div class="divider"></div>
- 
+
     <!-- FEEDBACKS -->
     <section class="fade">
       <span class="badge">Prova Social</span>
       <h2 class="text-4xl mt-3 mb-2 leading-none">RESULTADOS <span class="text-green-400">REAIS</span></h2>
-      <p class="text-zinc-400 text-sm mb-6">O que barbeiros como você estão falando depois do treinamento.</p>
+      <p class="text-zinc-400 text-sm mb-6">Barbeiros reais. Resultados reais. Sem edição.</p>
       <div class="space-y-3">
-        <img src="images/feedback1.jpeg" class="rounded-[20px] w-full glass" />
-        <img src="images/feedback2.jpeg" class="rounded-[20px] w-full glass" />
-        <img src="images/feedback3.jpeg" class="rounded-[20px] w-full glass" />
-        <img src="images/feedback4.jpeg" class="rounded-[20px] w-full glass" />
-        <img src="images/feedback5.jpeg" class="rounded-[20px] w-full glass" />
+        <img src="images/feedback1.jpeg" class="rounded-[20px] w-full glass" loading="lazy" />
+        <img src="images/feedback2.jpeg" class="rounded-[20px] w-full glass" loading="lazy" />
+        <img src="images/feedback3.jpeg" class="rounded-[20px] w-full glass" loading="lazy" />
+        <img src="images/feedback4.jpeg" class="rounded-[20px] w-full glass" loading="lazy" />
+        <img src="images/feedback5.jpeg" class="rounded-[20px] w-full glass" loading="lazy" />
       </div>
     </section>
- 
+
     <div class="divider"></div>
- 
+
     <!-- OBJEÇÕES -->
     <section class="fade">
       <h2 class="text-4xl leading-none mb-6">AINDA TEM <span class="text-green-400">DÚVIDAS?</span></h2>
@@ -453,32 +497,32 @@
         <div class="glass objection-card rounded-[20px] p-5">
           <h3 class="font-black text-base mb-2">"Mas eu já corto há anos..."</h3>
           <p class="text-zinc-400 text-sm leading-relaxed">
-            É exatamente aí que mora o problema. <strong class="text-white">Anos de prática sem técnica correta criam vícios</strong> que você nem percebe. O Método Santino foi feito para quebrar isso.
+            Esse é exatamente o problema. <strong class="text-white">Anos de prática sem técnica correta não formam um bom barbeiro — formam vícios.</strong> O Método Santino foi criado pra quebrar isso de uma vez.
           </p>
         </div>
         <div class="glass objection-card rounded-[20px] p-5">
           <h3 class="font-black text-base mb-2">"E se eu não conseguir aplicar?"</h3>
           <p class="text-zinc-400 text-sm leading-relaxed">
-            O treinamento é <strong class="text-white">visual e direto ao ponto</strong>. Você aprende vendo a técnica sendo executada em clientes reais. Se enxergou, consegue replicar.
+            O treinamento é <strong class="text-white">100% visual e aplicado em clientes reais.</strong> Se você enxergou, você consegue replicar. Simples assim.
           </p>
         </div>
         <div class="glass objection-card rounded-[20px] p-5">
           <h3 class="font-black text-base mb-2">"Não tenho tempo pra mais um curso"</h3>
           <p class="text-zinc-400 text-sm leading-relaxed">
-            Assista no celular, entre um cliente e outro, no horário que quiser. <strong class="text-white">Acesso vitalício</strong> — sem prazo pra acabar.
+            Assiste no celular entre um cliente e outro. <strong class="text-white">Acesso vitalício — sem prazo, sem pressão.</strong> Você aprende no seu ritmo.
           </p>
         </div>
         <div class="glass objection-card rounded-[20px] p-5">
           <h3 class="font-black text-base mb-2">"Vale mesmo R$39,90?"</h3>
           <p class="text-zinc-400 text-sm leading-relaxed">
-            Um único cliente a mais por semana por causa da sua evolução técnica já paga o treinamento <strong class="text-white">mais de 10 vezes</strong>. A pergunta certa é: quanto custa continuar igual?
+            Um único cliente a mais por semana por causa da sua evolução já paga esse treinamento <strong class="text-white">mais de 10 vezes.</strong> A pergunta certa não é se vale — é quanto você está perdendo por não ter essa técnica hoje.
           </p>
         </div>
       </div>
     </section>
- 
+
     <div class="divider"></div>
- 
+
     <!-- OFERTA -->
     <section class="fade text-center">
       <span class="badge">Oferta Especial</span>
@@ -504,7 +548,28 @@
         Menos do que um corte de cabelo. <strong class="text-white">Uma única vez.</strong><br>
         Acesso completo, vitalício, pra sempre.
       </p>
-      <div class="glass rounded-[20px] p-5 mt-6 flex items-center gap-4 text-left">
+
+      <!-- LISTA DE BENEFÍCIOS -->
+      <div class="glass rounded-[20px] p-5 mt-5 text-left space-y-3">
+        <div class="flex items-center gap-3">
+          <span class="text-green-400 font-black">✓</span>
+          <p class="text-sm text-zinc-300">Acesso imediato ao treinamento completo</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-green-400 font-black">✓</span>
+          <p class="text-sm text-zinc-300">Técnicas aplicadas em clientes reais</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-green-400 font-black">✓</span>
+          <p class="text-sm text-zinc-300">Assiste quando e onde quiser — vitalício</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-green-400 font-black">✓</span>
+          <p class="text-sm text-zinc-300">Método usado por +100 barbeiros formados</p>
+        </div>
+      </div>
+
+      <div class="glass rounded-[20px] p-5 mt-4 flex items-center gap-4 text-left">
         <div class="guarantee-badge">
           <span style="font-size:32px">🛡️</span>
         </div>
@@ -514,7 +579,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- CTA FINAL -->
     <section class="mt-8 mb-20 fade">
       <a href="https://pay.kiwify.com.br/smb6JXZ"
@@ -525,9 +590,9 @@
       <p class="text-center text-zinc-500 text-xs mt-3">🔒 Pagamento seguro • Acesso imediato • Vitalício</p>
       <p class="text-center text-zinc-600 text-xs mt-1">Depois dessa oferta o valor volta para R$97,00</p>
     </section>
- 
+
   </main>
- 
+
   <!-- STICKY CTA -->
   <div class="sticky-cta" id="stickyCta">
     <a href="https://pay.kiwify.com.br/smb6JXZ"
@@ -536,13 +601,13 @@
       COMEÇAR POR R$39,90 →
     </a>
   </div>
- 
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade').forEach(el => observer.observe(el));
- 
+
     function initCountdown() {
       const key = 'santino_deadline';
       let deadline = sessionStorage.getItem(key);
@@ -563,7 +628,7 @@
       update();
     }
     initCountdown();
- 
+
     const sticky = document.getElementById('stickyCta');
     window.addEventListener('scroll', () => {
       sticky.classList.toggle('visible', window.scrollY > 400);
@@ -571,4 +636,3 @@
   </script>
 </body>
 </html>
- 
